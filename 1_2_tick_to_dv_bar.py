@@ -6,9 +6,10 @@ Generate dollar value bars
 '''
 most_traded_crypto_tickers = ['X:BTCUSD', 'X:ETHUSD', 'X:USDTUSD', 'X:XRPUSD',
                               'X:ADAUSD', 'X:DOGEUSD', 'X:LTCUSD']
-config_list = ['1M','3M', '10M']
+small_cap_crypto = ['X:USDTUSD', 'X:XRPUSD', 'X:ADAUSD', 'X:DOGEUSD', 'X:LTCUSD']
+config_list = ['5KKK', '1M', '3M', '10M']
 
-for ticker in most_traded_crypto_tickers:
+for ticker in small_cap_crypto:
     for config in config_list:
         print(f'data/bar_data/{ticker[2:]}_{config}.pkl')
         if not os.path.isfile(f'data/bar_data/{ticker[2:]}_{config}.pkl'):
@@ -18,6 +19,8 @@ for ticker in most_traded_crypto_tickers:
                 dv_per_bar = 3_000_000
             elif config == '10M':
                 dv_per_bar = 10_000_000
+            elif config == '5KKK':
+                dv_per_bar = 500_000
             tick_data = pd.read_pickle(f'data/tick_consolidated/{ticker[2:]}.pkl')
             tick_data = tick_data.sort_values(by='timestamp', ascending=True)
             tick_data['dv'] = tick_data['price'] * tick_data['size']
@@ -34,7 +37,7 @@ for ticker in most_traded_crypto_tickers:
                     - simply keep the last for now
             '''
             # drop duplicates
-            reference_bar = dv_bar_data.drop_duplicates(subset=['timestamp_end'], keep='last')
+            # reference_bar = dv_bar_data.drop_duplicates(subset=['timestamp_end'], keep='last')
             # save to local
             dv_bar_data.to_pickle(f'data/bar_data/{ticker[2:]}_{config}.pkl')
         else:

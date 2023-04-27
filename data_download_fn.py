@@ -8,6 +8,43 @@ client = RESTClient(api_key=API_KEY)
 NASDAQ_DATA_LINK_API_KEY = 'eP1dykvbQZ4DhM-v6fBL'
 fred = Fred(api_key='c0840fcbad7715d56f29e034547b90b8')
 
+def get_time_aggbars(start_dt, end_dt, ticker, multiplier, timespan, path):
+    file_name = path + ticker[2:] + '_' + '_' + timespan + '_' + start_dt + '_' + end_dt + '.pkl'
+    if os.path.isfile(file_name):
+        print(file_name + ' found locally!')
+        return pd.read_pickle(file_name)
+    else:
+        print('downloading data and saving locally at' + path)
+        print(file_name)
+        timestamp = []
+        open_price = []
+        high = []
+        low = []
+        close = []
+        volume = []
+        vwap = []
+        agg_bars = client.get_aggs(
+            ticker=ticker, multiplier=multiplier, timespan=timespan, from_=start_dt, to=end_dt,
+            adjusted=True, sort='asc', limit=9999999, params=None, raw=False
+        )
+        for t in agg_bars:
+            timestamp.append(t.timestamp)
+            open_price.append(t.open)
+            high.append(t.high)
+            low.append(t.low)
+            close.append(t.close)
+            volume.append(t.volume)
+            vwap.append(t.vwap)
+        df_dict = {
+            'Timestamp': timestamp,'Open': open_price,'High': high,'Low': low,'Close': close,'Volume': volume,'Vwap': vwap
+        }
+        df = pd.DataFrame(df_dict)
+        df['Timestamp'] = pd.to_datetime(df['Timestamp'], unit='ms')
+        print(df.shape)
+        # save locally:
+        df.to_pickle(file_name)
+    return df
+
 def get_ticker_trades(start_dt, end_dt, ticker, path):
     # crypto only
     file_name = path + ticker[2:] + '_' + start_dt + '_' + end_dt + '.pkl'
