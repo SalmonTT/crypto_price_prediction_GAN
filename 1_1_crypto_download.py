@@ -3,8 +3,8 @@ import pandas as pd
 import datetime
 from tqdm import tqdm
 # Most traded crypto
-# most_traded_crypto_tickers = ['X:BTCUSD', 'X:ETHUSD', 'X:USDTUSD', 'X:XRPUSD', 'X:ADAUSD']
-most_traded_crypto_tickers = ['X:ETHUSD']
+# most_traded_crypto_tickers = ['X:BTCUSD', 'X:ETHUSD', 'X:USDTUSD', 'X:XRPUSD', 'X:ADAUSD', 'X:DOGEUSD]
+most_traded_crypto_tickers = ['X:DOGEUSD']
 # config
 start_date = datetime.date(2017, 1, 1)
 end_date = datetime.date(2023, 3, 31)

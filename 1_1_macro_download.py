@@ -2,7 +2,6 @@ import pandas as pd
 import datetime
 import data_download_fn as data_download
 
-
 # start and end dates of the entire data period
 start_date = datetime.datetime(2010, 1, 1)
 end_date = datetime.datetime(2023, 3, 31)
@@ -66,18 +65,16 @@ vix=data_download.load_FRED('VIXCLS', start_date, end_date)
 
 # ### Currencies
 
-# +
 # nominal USD broad nominal
 usd_nominal = data_download.load_FRED('DTWEXBGS', early_start_date, end_date)
 
 # real USD broad nominal
 usd_real = data_download.load_FRED('RTWEXBGS', early_start_date, end_date).reindex(dates, method='ffill')
-# -
 
 # USD EURO spot
 usd_euro = data_download.load_FRED('DEXUSEU', start_date, end_date)
 
-# ### Bullions
+### Bullions
 
 # London Bullion Market Association： https://data.nasdaq.com/data/LBMA-london-bullion-market-association
 gold_london = data_download.load_NASDAQ("LBMA/GOLD", start_date=start_date, end_date=end_date)
@@ -139,30 +136,16 @@ dataset['silver_london'] = silver_london['USD']
 # dataset['GOFO_6M'] = gold_forward['GOFO - 6 Months']
 # dataset['GOFO_12M'] = gold_forward['GOFO - 12 Months']
 
-# + [markdown] tags=[]
-# # 4. Data Imputation
-# -
-
-dataset.columns[dataset.isnull().any()]
-
-# +
 missing_cols = dataset.columns[dataset.isnull().any()]
 dataset[missing_cols] = dataset[missing_cols].ffill()
 
 # drop '30_YR' since 2010 data is missing from source
 dataset = dataset.drop(columns=['30_YR'])
-# -
 
 print(dataset.columns[dataset.isnull().any()])
-
-# + [markdown] tags=[]
-# # Output to pickle
-# -
 
 output_file = 'data/'+'macro_'+start_date.strftime("%m_%d_%Y")+'to'+end_date.strftime("%m_%d_%Y")+'.pkl'
 dataset.to_pickle(output_file)
 
-# check the null counts
-dataset.isnull().sum().sort_values(ascending=False)
 
 
