@@ -24,7 +24,7 @@ path = './data/'
 start_date = '2017-01-01'
 end_date = '2023-03-31'
 multiplier = 1
-timespan = 'day'
+timespan = 'minute'
 for ticker in tqdm(most_traded_crypto_tickers):
     # iterate over range of dates
     aggbars_df = data_download.get_time_aggbars(start_date, end_date, ticker, multiplier, timespan, path)
