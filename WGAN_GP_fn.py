@@ -134,6 +134,7 @@ class GAN():
         train_hist['per_epoch_times'] = []
         train_hist['total_ptime'] = []
         list_predicted_price = []
+        list_rmse = []
         for epoch in range(epochs):
             start = time.time()
             # both are arrays with shape [X, 1], fake_price is a tensorEagle object
@@ -153,9 +154,9 @@ class GAN():
             train_hist['G_losses'].append(loss['g_loss'].numpy())
             train_hist['per_epoch_times'].append(per_epoch_ptime)
 
-            rmspe = np.sqrt(mean_squared_error(real_price.T[0], fake_price.numpy().T[0])) / np.mean(
-            real_price.T[0])
-            print(f"RMSPE of predicted prices vs. real prices: {rmspe}")
+            rmse = np.sqrt(mean_squared_error(fake_price.numpy().T[0], real_price.T[0]))
+            list_rmse.append(rmse)
+            # print(f"RMSPE of predicted prices vs. real prices: {rmspe}")
 
         # Reshape the predicted result & real
         # Plot the loss
@@ -164,9 +165,7 @@ class GAN():
         plt.xlabel('Epoch')
         plt.ylabel('Loss')
         plt.legend()
-        plt.savefig('train_loss.png')
+        plt.savefig('images/wgan_gp_train_loss.png')
         plt.show()
 
-        rmspe = np.sqrt(mean_squared_error(real_price.T[0], list_predicted_price[-1])) / np.mean(
-            real_price.T[0])
-        return list_predicted_price, real_price.T[0], rmspe
+        return list_predicted_price, real_price.T[0], list_rmse

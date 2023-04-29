@@ -4,7 +4,7 @@ import GRU_fn as gru
 
 # Load data
 config = '3_1'
-train_val_path = './train_test_data/'
+train_val_path = 'train_val_test_data/'
 X_train = np.load(f"{train_val_path}X_train_{config}.npy", allow_pickle=True)
 y_train = np.load(f"{train_val_path}y_train_{config}.npy", allow_pickle=True)
 X_val = np.load(f"{train_val_path}X_val_{config}.npy", allow_pickle=True)
