@@ -2,26 +2,26 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-def get_technical_indicators(dataset):
+def get_technical_indicators(dataset, price):
     # Create 7 and 21 days Moving Average
-    dataset['ma7'] = dataset['ETHUSD_vwap'].rolling(window=7).mean()
-    dataset['ma21'] = dataset['ETHUSD_vwap'].rolling(window=21).mean()
+    dataset['ma7'] = dataset[price].rolling(window=7).mean()
+    dataset['ma21'] = dataset[price].rolling(window=21).mean()
 
     # Create MACD
-    dataset['26ema'] = dataset['ETHUSD_vwap'].ewm(span=26).mean()
-    dataset['12ema'] = dataset['ETHUSD_vwap'].ewm(span=12).mean()
+    dataset['26ema'] = dataset[price].ewm(span=26).mean()
+    dataset['12ema'] = dataset[price].ewm(span=12).mean()
     dataset['MACD'] = (dataset['12ema'] - dataset['26ema'])
 
     # Create Bollinger Bands
-    dataset['20sd'] = dataset['ETHUSD_vwap'].rolling(20).std()
+    dataset['20sd'] = dataset[price].rolling(20).std()
     dataset['upper_band'] = dataset['ma21'] + (dataset['20sd'] * 2)
     dataset['lower_band'] = dataset['ma21'] - (dataset['20sd'] * 2)
     # Create Exponential moving average
-    dataset['ema'] = dataset['ETHUSD_vwap'].ewm(com=0.5).mean()
+    dataset['ema'] = dataset[price].ewm(com=0.5).mean()
 
     # Create Momentum
     # Calculate the price change
-    delta = dataset['ETHUSD_vwap'].diff()
+    delta = dataset[price].diff()
     # Calculate the gain and loss from the price change
     gain = delta.where(delta > 0, 0)
     loss = -delta.where(delta < 0, 0)
@@ -36,11 +36,11 @@ def get_technical_indicators(dataset):
     dataset['RSI'] = rsi
     return dataset
 
-def get_fourier_transfer(dataset):
+def get_fourier_transfer(dataset, price):
     # Get the columns for doing fourier
-    data_FT = dataset[['Timestamp', 'ETHUSD_vwap']]
+    data_FT = dataset[['Timestamp', price]]
 
-    close_fft = np.fft.fft(np.asarray(data_FT['ETHUSD_vwap'].tolist()))
+    close_fft = np.fft.fft(np.asarray(data_FT[price].tolist()))
     fft_df = pd.DataFrame({'fft': close_fft})
     fft_df['absolute'] = fft_df['fft'].apply(lambda x: np.abs(x))
     fft_df['angle'] = fft_df['fft'].apply(lambda x: np.angle(x))
@@ -60,7 +60,7 @@ def get_fourier_transfer(dataset):
     return fft_com_df
 
 
-def plot_technical_indicators(dataset, last_days):
+def plot_technical_indicators(dataset, last_days, price):
     plt.figure(figsize=(16, 10), dpi=100)
     shape_0 = dataset.shape[0]
     xmacd_ = shape_0 - last_days
@@ -72,7 +72,7 @@ def plot_technical_indicators(dataset, last_days):
     # Plot first subplot
     plt.subplot(2, 1, 1)
     plt.plot(dataset['ma7'], label='MA 7', color='g', linestyle='--')
-    plt.plot(dataset['ETHUSD_vwap'], label='Closing Price', color='b')
+    plt.plot(dataset[price], label='Closing Price', color='b')
     plt.plot(dataset['ma21'], label='MA 21', color='r', linestyle='--')
     plt.plot(dataset['upper_band'], label='Upper Band', color='c')
     plt.plot(dataset['lower_band'], label='Lower Band', color='c')
@@ -93,9 +93,9 @@ def plot_technical_indicators(dataset, last_days):
     plt.show()
 
 
-def plot_Fourier(dataset):
-    data_FT = dataset[['Timestamp', 'ETHUSD_vwap']]
-    close_fft = np.fft.fft(np.asarray(data_FT['ETHUSD_vwap'].tolist()))
+def plot_Fourier(dataset, price):
+    data_FT = dataset[['Timestamp', price]]
+    close_fft = np.fft.fft(np.asarray(data_FT[price].tolist()))
     fft_df = pd.DataFrame({'fft': close_fft})
     fft_df['absolute'] = fft_df['fft'].apply(lambda x: np.abs(x))
     fft_df['angle'] = fft_df['fft'].apply(lambda x: np.angle(x))
@@ -106,7 +106,7 @@ def plot_Fourier(dataset):
         fft_list_m10 = np.copy(fft_list);
         fft_list_m10[num_:-num_] = 0
         plt.plot(np.fft.ifft(fft_list_m10), label='Fourier transform with {} components'.format(num_))
-    plt.plot(data_FT['ETHUSD_vwap'], label='Real')
+    plt.plot(data_FT[price], label='Real')
     plt.xlabel('Days')
     plt.ylabel('USD')
     plt.title('ETHUSD (vwap) prices & Fourier transforms')
@@ -119,7 +119,7 @@ def reformat_features(data, in_steps, out_steps):
         data = data.to_numpy()
     print(data.shape)
     samples = []
-    length = int(in_steps + out_steps)
+    length = int(in_steps)
     n = int(data.shape[0]/length)
     for i in range(0, n):
         sample = data[i:i + length]
@@ -128,3 +128,25 @@ def reformat_features(data, in_steps, out_steps):
     data = np.array(samples)
     print(data.shape)
     return data
+
+def get_X_y(X_data, y_data, n_steps_in, n_steps_out):
+    X = list()
+    y = list()
+    yc = list()
+    length = len(X_data)
+    for i in range(0, length):
+        X_value = X_data[i: i + n_steps_in][:, :]
+        y_value = y_data[i + n_steps_in: i + (n_steps_in + n_steps_out)][:, 0]
+        yc_value = y_data[i: i + n_steps_in][:, :]
+        if len(X_value) == 3 and len(y_value) == 1:
+            X.append(X_value)
+            y.append(y_value)
+            yc.append(yc_value)
+    return np.array(X), np.array(y), np.array(yc)
+
+def split_train_test(X, y, train_size):
+    X_train = X[0:train_size]
+    X_test = X[train_size:]
+    y_train = y[0:train_size]
+    y_test = y[train_size:]
+    return X_train, X_test, y_train, y_test

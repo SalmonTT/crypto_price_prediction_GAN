@@ -32,6 +32,8 @@ if method == 1:
     # Part 2
     macro_data = pd.read_pickle('./data/macro/macro_01_01_2010to03_31_2023.pkl')
     dataset = pd.merge(crypto_data, macro_data, how='left', left_on='Timestamp', right_index=True)
+    # Forward fill data
+    dataset = dataset.ffill()
     # output to pickle
     print(dataset)
     dataset.to_pickle('./data/dataset_1.pkl')
@@ -54,5 +56,6 @@ elif method == 2:
     macro_data = pd.read_pickle('./data/macro/macro_01_01_2010to03_31_2023.pkl')
     dataset = pd.merge(crypto_data, macro_data, how='left', left_on='Timestamp', right_index=True)
     # output to pickle
+
     print(dataset)
     dataset.to_pickle('./data/dataset_2.pkl')

@@ -4,8 +4,15 @@ import datetime
 from tqdm import tqdm
 # Most traded crypto
 most_traded_crypto_tickers = ['X:BTCUSD', 'X:ETHUSD', 'X:USDTUSD', 'X:XRPUSD', 'X:ADAUSD', 'X:DOGEUSD', 'X:LTCUSD']
-# most_traded_crypto_tickers = ['X:DOGEUSD']
-
+''' Earlist dates:
+    ETHUSD: 20170101
+    BTCUSD: 20170101
+    LTCUSD: 20170101
+    XRPUSD: 20170103
+    USDTUSD: 20170329
+    DOGEUSD: 20170601
+    ADAUSD: 20180206
+'''
 # config
 start_date = datetime.date(2017, 1, 1)
 end_date = datetime.date(2023, 3, 31)
