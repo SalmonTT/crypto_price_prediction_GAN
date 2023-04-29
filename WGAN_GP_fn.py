@@ -133,54 +133,40 @@ class GAN():
         train_hist['G_losses'] = []
         train_hist['per_epoch_times'] = []
         train_hist['total_ptime'] = []
-
+        list_predicted_price = []
         for epoch in range(epochs):
             start = time.time()
+            # both are arrays with shape [X, 1], fake_price is a tensorEagle object
             real_price, fake_price, loss = self.train_step(data)
-            
-            G_losses = []
-            D_losses = []
-
-            real_price = []
-            predicted_price = []
-
-            D_losses.append(loss['d_loss'].numpy())
-            G_losses.append(loss['g_loss'].numpy())
-
-            predicted_price.append(fake_price)
-            real_price.append(real_price)
+            list_predicted_price.append(fake_price.numpy().T[0])
 
             # Save the model every 15 epochs
             if (epoch + 1) % 15 == 0:
-                tf.keras.models.save_model(self.generator, 'gen_GRU_model_%d.h5' % epoch)
+                # tf.keras.models.save_model(self.generator, 'gen_GRU_model_%d.h5' % epoch)
                 self.checkpoint.save(file_prefix=self.checkpoint_prefix)
                 print('epoch', epoch + 1, 'd_loss', loss['d_loss'].numpy(), 'g_loss', loss['g_loss'].numpy())
 
             # For printing loss
             epoch_end_time = time.time()
             per_epoch_ptime = epoch_end_time - start
-            train_hist['D_losses'].append(D_losses)
-            train_hist['G_losses'].append(G_losses)
+            train_hist['D_losses'].append(loss['d_loss'].numpy())
+            train_hist['G_losses'].append(loss['g_loss'].numpy())
             train_hist['per_epoch_times'].append(per_epoch_ptime)
 
+            rmspe = np.sqrt(mean_squared_error(real_price.T[0], fake_price.numpy().T[0])) / np.mean(
+            real_price.T[0])
+            print(f"RMSPE of predicted prices vs. real prices: {rmspe}")
+
         # Reshape the predicted result & real
-        predicted_price = np.array(predicted_price)
-        predicted_price = predicted_price.reshape(predicted_price.shape[1], predicted_price.shape[2])
-        real_price = np.array(real_price)
-        real_price = real_price.reshape(real_price.shape[1], real_price.shape[2])
         # Plot the loss
         plt.plot(train_hist['D_losses'], label='D_loss')
         plt.plot(train_hist['G_losses'], label='G_loss')
         plt.xlabel('Epoch')
         plt.ylabel('Loss')
         plt.legend()
-        plt.show()
         plt.savefig('train_loss.png')
+        plt.show()
 
-        print("REAL", real_price.shape)
-        print(real_price)
-        print("PREDICTED", predicted_price.shape)
-        print(predicted_price)
-
-        return predicted_price, real_price, np.sqrt(mean_squared_error(real_price, predicted_price)) / np.mean(
-            real_price)
+        rmspe = np.sqrt(mean_squared_error(real_price.T[0], list_predicted_price[-1])) / np.mean(
+            real_price.T[0])
+        return list_predicted_price, real_price.T[0], rmspe

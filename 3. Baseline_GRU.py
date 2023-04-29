@@ -12,7 +12,7 @@ y_val = np.load(f"{train_val_path}y_val_{config}.npy", allow_pickle=True)
 X_test = np.load(f"{train_val_path}X_test_{config}.npy", allow_pickle=True)
 y_test = np.load(f"{train_val_path}y_test_{config}.npy", allow_pickle=True)
 
-y_scaler = pd.read_pickle(f'y_scaler_{config}.pkl')
+y_scaler = pd.read_pickle(f'{train_val_path}y_scaler_{config}.pkl')
 train_predict_index = np.load(f"{train_val_path}index_train_{config}.npy", allow_pickle=True)
 val_predict_index = np.load(f"{train_val_path}index_val_{config}.npy", allow_pickle=True)
 test_predict_index = np.load(f"{train_val_path}index_test_{config}.npy", allow_pickle=True)
