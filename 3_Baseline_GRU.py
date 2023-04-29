@@ -20,7 +20,7 @@ test_predict_index = np.load(f"{train_val_path}index_test_{config}.npy", allow_p
 # Parameters
 LR = 0.0001
 BATCH_SIZE = 10
-N_EPOCH = 200
+N_EPOCH = 100
 
 print(f"input_dim: {X_train.shape[1]}, feature_size: {X_train.shape[2]}, "
       f"output_dim: {y_train.shape[1]}")
@@ -34,10 +34,10 @@ print(model.summary())
 ## ------ Plot results ------ ##
 
 train_RMSE = gru.plot_prediction(model, X_train, y_train, y_scaler, train_predict_index, 'Training')
-print("----- Train_RMSE_LSTM -----", train_RMSE)
+print("----- Train_RMSE_GRU -----", train_RMSE)
 
 val_RMSE = gru.plot_prediction(model, X_val, y_val, y_scaler, val_predict_index, 'Validation')
-print("----- Train_RMSE_LSTM -----", val_RMSE)
+print("----- Val_RMSE_GRU -----", val_RMSE)
 
 test_RMSE = gru.plot_prediction(model, X_test, y_test, y_scaler, test_predict_index, 'Test')
-print("----- Train_RMSE_LSTM -----", test_RMSE)
+print("----- Test_RMSE_GRU -----", test_RMSE)

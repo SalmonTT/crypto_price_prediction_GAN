@@ -21,7 +21,7 @@ test_predict_index = np.load(f"{train_test_path}index_test_{config}.npy", allow_
 input_dim = X_train.shape[1]
 feature_size = X_train.shape[2]
 output_dim = y_train.shape[1]
-epoch = 300
+epoch = 200
 
 generator = gan_fn.Generator(X_train.shape[1], output_dim, X_train.shape[2])
 discriminator = gan_fn.Discriminator()
