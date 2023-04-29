@@ -158,6 +158,7 @@ class GAN():
             list_rmse.append(rmse)
             # print(f"RMSPE of predicted prices vs. real prices: {rmspe}")
 
+        tf.keras.models.save_model(self.generator, 'models/WGAN_GP_model.h5')
         # Reshape the predicted result & real
         # Plot the loss
         plt.plot(train_hist['D_losses'], label='D_loss')
