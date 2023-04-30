@@ -79,8 +79,7 @@ class GAN():
         gp = tf.reduce_mean((norm - 1.0) ** 2)
         return gp
 
-    def train_step(self, data):
-        real_input, real_price, yc = data
+    def train_step(self, real_input, real_price, yc):
         batch_size = tf.shape(real_input)[0]
         for _ in range(1):
             with tf.GradientTape() as d_tape:
@@ -127,7 +126,6 @@ class GAN():
         return real_price, generated_data, {'d_loss': d_loss, 'g_loss': g_loss}
 
     def train(self, X_train, y_train, yc, epochs):
-        data = X_train, y_train, yc
         train_hist = {}
         train_hist['D_losses'] = []
         train_hist['G_losses'] = []
@@ -138,7 +136,7 @@ class GAN():
         for epoch in range(epochs):
             start = time.time()
             # both are arrays with shape [X, 1], fake_price is a tensorEagle object
-            real_price, fake_price, loss = self.train_step(data)
+            real_price, fake_price, loss = self.train_step(X_train, y_train, yc)
             list_predicted_price.append(fake_price.numpy().T[0])
 
             # Save the model every 15 epochs

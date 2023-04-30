@@ -36,11 +36,7 @@ model = gru.basic_lstm(X_train, y_train, X_val, y_val,
 print(model.summary())
 
 prediction = model.predict(X_train, verbose=0)
-print(prediction.shape)
-print(prediction)
 prediction = y_scaler.inverse_transform(prediction)
-
-
 
 ## ------ Plot results ------ ##
 train_RMSE = gru.plot_prediction(model, X_train, y_train, y_scaler, train_predict_index, 'Training')
