@@ -5,7 +5,7 @@ import tensorflow as tf
 import numpy as np
 import math
 
-def basic_lstm(X_train, y_train, X_val, y_val, LR, BATCH_SIZE, N_EPOCH) -> tf.keras.models.Model:
+def basic_lstm(X_train, y_train, X_val, y_val, LR, BATCH_SIZE, N_EPOCH, custom_lr) -> tf.keras.models.Model:
     input_dim = X_train.shape[1]
     feature_size = X_train.shape[2]
     output_dim = y_train.shape[1]
@@ -16,15 +16,21 @@ def basic_lstm(X_train, y_train, X_val, y_val, LR, BATCH_SIZE, N_EPOCH) -> tf.ke
     model.add(tf.keras.layers.Dense(units=output_dim))
     model.compile(optimizer=tf.optimizers.Adam(lr=LR), loss='mse')
     model.compile(optimizer=tf.optimizers.Adam(learning_rate=LR), loss='mse')
-    history = model.fit(X_train, y_train, epochs=N_EPOCH, batch_size=BATCH_SIZE, validation_data=(X_val, y_val),
-                        verbose=2, shuffle=False)
+    # add custom scheduler and early stop loss
+    lr_callback = tf.keras.callbacks.LearningRateScheduler(scheduler)
+    if custom_lr:
+        history = model.fit(X_train, y_train, epochs=N_EPOCH, batch_size=BATCH_SIZE, validation_data=(X_val, y_val),
+                            verbose=2, shuffle=False, callbacks=[lr_callback])
+    else:
+        history = model.fit(X_train, y_train, epochs=N_EPOCH, batch_size=BATCH_SIZE, validation_data=(X_val, y_val),
+                            verbose=2, shuffle=False)
     plt.plot(history.history['loss'], label='train')
     plt.plot(history.history['val_loss'], label='validation')
     plt.legend()
     plt.show()
 
     return model
-def basic_GRU(X_train, y_train, X_val, y_val, LR, BATCH_SIZE, N_EPOCH) -> tf.keras.models.Model:
+def basic_GRU(X_train, y_train, X_val, y_val, LR, BATCH_SIZE, N_EPOCH, custom_lr) -> tf.keras.models.Model:
     input_dim = X_train.shape[1]
     feature_size = X_train.shape[2]
     output_dim = y_train.shape[1]
@@ -39,19 +45,19 @@ def basic_GRU(X_train, y_train, X_val, y_val, LR, BATCH_SIZE, N_EPOCH) -> tf.ker
             tf.keras.layers.Dense(units=output_dim)
         ])
         return model
-    # add custom scheduler and early stop loss
-    lr_callback = tf.keras.callbacks.LearningRateScheduler(scheduler)
 
     # Use CPU to train
     with tf.device('/CPU:0'):
         model = Model()
         model.compile(optimizer=tf.optimizers.Adam(learning_rate=LR), loss='mse')
-        # with callbacks
-        history = model.fit(X_train, y_train, epochs=N_EPOCH, batch_size=BATCH_SIZE, validation_data=(X_val, y_val),
+        if custom_lr:
+            # with callbacks
+            history = model.fit(X_train, y_train, epochs=N_EPOCH, batch_size=BATCH_SIZE, validation_data=(X_val, y_val),
                             shuffle=False, callbacks=[lr_callback])
-        # no callbacks
-        # history = model.fit(X_train, y_train, epochs=N_EPOCH, batch_size=BATCH_SIZE, validation_data=(X_val, y_val),
-        #                     verbose=2, shuffle=False)
+        else:
+            # no callbacks
+            history = model.fit(X_train, y_train, epochs=N_EPOCH, batch_size=BATCH_SIZE, validation_data=(X_val, y_val),
+                            verbose=2, shuffle=False)
     plt.plot(history.history['loss'], label='train')
     plt.plot(history.history['val_loss'], label='validation')
     plt.legend()

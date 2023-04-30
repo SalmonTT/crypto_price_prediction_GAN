@@ -115,14 +115,16 @@ class GAN:
             rmse = np.sqrt(mean_squared_error(fake_price.numpy().T[0], real_price.numpy().T[0]))
             list_rmse.append(rmse)
 
-        tf.keras.models.save_model(self.generator, 'models/basic_GAN_model.h5')
+        tf.keras.models.save_model(self.generator, f'models/gan_model_{self.opt["timesteps"]}_{self.opt["lr"]}_'
+                                                   f'{self.opt["bs"]}_{self.opt["epoch"]}.h5')
         # Plot the loss
         plt.plot(train_hist['D_losses'], label='D_loss')
         plt.plot(train_hist['G_losses'], label='G_loss')
         plt.xlabel('Epoch')
         plt.ylabel('Loss')
         plt.legend()
-        plt.savefig('images/wgan_gp_train_loss.png')
+        plt.savefig(f'images/gan_loss_{self.opt["timesteps"]}_{self.opt["lr"]}_'
+                                                   f'{self.opt["bs"]}_{self.opt["epoch"]}.png')
         plt.show()
 
         return list_predicted_price, real_price.numpy().T[0], list_rmse

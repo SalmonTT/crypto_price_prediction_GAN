@@ -41,13 +41,14 @@ def Discriminator() -> tf.keras.models.Model:
 
 
 class GAN():
-    def __init__(self, generator, discriminator):
+    def __init__(self, generator, discriminator, opt):
         super(GAN, self).__init__()
-        self.d_optimizer = tf.keras.optimizers.Adam(0.0001)
-        self.g_optimizer = tf.keras.optimizers.Adam(0.0001)
+        self.opt = opt
+        self.d_optimizer = tf.keras.optimizers.Adam(self.opt['lr'])
+        self.g_optimizer = tf.keras.optimizers.Adam(self.opt['lr'])
         self.generator = generator
         self.discriminator = discriminator
-        self.batch_size = 128
+        self.batch_size = self.opt['bs']
         checkpoint_dir = '../training_checkpoints'
         self.checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
         self.checkpoint = tf.train.Checkpoint(generator_optimizer=self.g_optimizer,
@@ -156,7 +157,8 @@ class GAN():
             list_rmse.append(rmse)
             # print(f"RMSPE of predicted prices vs. real prices: {rmspe}")
 
-        tf.keras.models.save_model(self.generator, 'models/WGAN_GP_model.h5')
+        tf.keras.models.save_model(self.generator, f'models/WGAN_model_{self.opt["timesteps"]}_{self.opt["lr"]}_'
+                                                   f'{self.opt["bs"]}_{self.opt["epoch"]}.h5')
         # Reshape the predicted result & real
         # Plot the loss
         plt.plot(train_hist['D_losses'], label='D_loss')
@@ -164,7 +166,8 @@ class GAN():
         plt.xlabel('Epoch')
         plt.ylabel('Loss')
         plt.legend()
-        plt.savefig('images/wgan_gp_train_loss.png')
+        plt.savefig(f'images/wgan_loss_{self.opt["timesteps"]}_{self.opt["lr"]}_'
+                                                   f'{self.opt["bs"]}_{self.opt["epoch"]}.png')
         plt.show()
 
         return list_predicted_price, real_price.T[0], list_rmse
