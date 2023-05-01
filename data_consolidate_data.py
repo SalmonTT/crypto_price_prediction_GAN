@@ -40,7 +40,7 @@ if method == 1:
 
 elif method == 2:
     '''
-    Use minute data
+    Use minute data (currently not implemented)
     '''
     # Part 1
     crypto_data_list = []

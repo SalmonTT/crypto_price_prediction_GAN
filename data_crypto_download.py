@@ -1,4 +1,4 @@
-import data_download_fn as data_download
+import fn_data_download as data_download
 import pandas as pd
 import datetime
 from tqdm import tqdm

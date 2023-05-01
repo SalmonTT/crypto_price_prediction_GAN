@@ -27,38 +27,50 @@ if generate_data:
     data_configs = source, target, split_ratio, trainval_split_ratio, n_steps_in, n_steps_out
     generate_train_val_test(data_configs)
 
+
 # ---- Run Models ----- #
 # Common Configs
 timesteps = ['3_1', '15_2', '30_3']
 lstm_gru_path = 'train_val_test_data/'
 gan_path = 'train_test_data/'
+i = 0 # an index to set the params from lists
 
 # GRU
-epoch = 10
-batch_size = 50
-lr = 0.001
-custom_lr = False
-gru_configs = timesteps[0], lstm_gru_path, epoch, batch_size, lr, custom_lr
+epoch = 50
+batch_size = 128
+lr = 0.0001
+custom_lr = False # If true, will use a custom learning rate scheduler
+gru_configs = timesteps[i], lstm_gru_path, epoch, batch_size, lr, custom_lr
 # run_gru(gru_configs)
 
+
 # LSTM
-epoch = 10
-batch_size = 50
-lr = 0.001
-custom_lr = True
-lstm_configs = timesteps[0], lstm_gru_path, epoch, batch_size, lr, custom_lr
+epoch = 50 # 50,
+batch_size = 64 # 64,
+lr = 0.001 # 0.001
+custom_lr = False # If true, will use a custom learning rate scheduler
+lstm_configs = timesteps[i], lstm_gru_path, epoch, batch_size, lr, custom_lr
 # run_lstm(lstm_configs)
 
+# -- GAN Models -- #
 # GAN
-epoch = 10
-batch_size = 50
-lr = 0.001
-gan_configs = timesteps[0], gan_path, epoch, batch_size, lr
-# run_basic_gan(gan_configs)
+epoch = 200 # 165,
+batch_size = 128 # 128,
+lr = 0.00016 # 0.00016,
+gan_type = 'gan'
+gan_configs = timesteps[i], gan_path, epoch, batch_size, lr
+run_basic_gan(gan_configs)
+# Outsample
+gan_pred_configs = gan_type, timesteps[i], gan_path, epoch, batch_size, lr
+run_gan_predictions(gan_pred_configs)
 
 # WGAN
-epoch = 10
-batch_size = 50
-lr = 0.001
-wgan_configs = timesteps[0], gan_path, epoch, batch_size, lr
-run_wgan(wgan_configs)
+epoch = 100
+batch_size = 100
+lr = 0.0001
+gan_type = 'wgan'
+wgan_configs = timesteps[i], gan_path, epoch, batch_size, lr
+# run_wgan(wgan_configs)
+# Outsample
+wgan_pred_configs = gan_type, timesteps[i], gan_path, epoch, batch_size, lr
+# run_gan_predictions(wgan_pred_configs)

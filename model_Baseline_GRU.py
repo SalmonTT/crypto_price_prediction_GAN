@@ -28,12 +28,12 @@ def run_gru(configs):
     # model.save('GRU_30to3.h5')
 
     ## ------ Plot results ------ ##
-    train_RMSE = gru.plot_prediction(model, X_train, y_train, y_scaler, train_predict_index, 'Training')
+    train_RMSE = gru.plot_prediction(model, X_train, y_train, y_scaler, train_predict_index, 'Training', 'GRU', configs, )
     print("----- Train_RMSE_GRU -----", train_RMSE)
 
-    val_RMSE = gru.plot_prediction(model, X_val, y_val, y_scaler, val_predict_index, 'Validation')
+    val_RMSE = gru.plot_prediction(model, X_val, y_val, y_scaler, val_predict_index, 'Validation', 'GRU', configs)
     print("----- Val_RMSE_GRU -----", val_RMSE)
 
-    test_RMSE = gru.plot_prediction(model, X_test, y_test, y_scaler, test_predict_index, 'Test')
+    test_RMSE = gru.plot_prediction(model, X_test, y_test, y_scaler, test_predict_index, 'Test', 'GRU', configs)
     print("----- Test_RMSE_GRU -----", test_RMSE)
     pass

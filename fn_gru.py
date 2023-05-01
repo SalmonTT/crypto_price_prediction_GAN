@@ -1,9 +1,11 @@
-import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.metrics import mean_squared_error
-import tensorflow as tf
-import numpy as np
 import math
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import tensorflow as tf
+from sklearn.metrics import mean_squared_error
+
 
 def basic_lstm(X_train, y_train, X_val, y_val, LR, BATCH_SIZE, N_EPOCH, custom_lr) -> tf.keras.models.Model:
     input_dim = X_train.shape[1]
@@ -46,6 +48,7 @@ def basic_GRU(X_train, y_train, X_val, y_val, LR, BATCH_SIZE, N_EPOCH, custom_lr
         ])
         return model
 
+    lr_callback = tf.keras.callbacks.LearningRateScheduler(scheduler)
     # Use CPU to train
     with tf.device('/CPU:0'):
         model = Model()
@@ -61,16 +64,17 @@ def basic_GRU(X_train, y_train, X_val, y_val, LR, BATCH_SIZE, N_EPOCH, custom_lr
     plt.plot(history.history['loss'], label='train')
     plt.plot(history.history['val_loss'], label='validation')
     plt.legend()
+    plt.savefig(f"images/GRU_loss_{input_dim}_{output_dim}_{N_EPOCH}_{BATCH_SIZE}_{LR}_{custom_lr}.png")
     plt.show()
 
     return model
 
-def plot_prediction(model, X, y, y_scaler, predict_index, dataset_name):
+def plot_prediction(model, X, y, y_scaler, predict_index, dataset_name, model_name, configs):
+    timesteps, path, epoch, batch_size, lr, custom_lr = configs
     prediction = model.predict(X, verbose=0)
     if dataset_name != 'Test':
         y = y_scaler.inverse_transform(y)
     prediction = y_scaler.inverse_transform(prediction)
-    # (1200, 1)
     df = pd.DataFrame(index=predict_index)
     df['prediction'] = prediction.T[0]
     df['actual'] = y.T[0]
@@ -83,11 +87,14 @@ def plot_prediction(model, X, y, y_scaler, predict_index, dataset_name):
     plt.ylabel("Price")
     plt.legend(("Actual price", "Predicted price"), loc="upper left", fontsize=16)
     plt.title(f"{dataset_name}", fontsize=20)
+    if dataset_name == 'Test':
+        plt.savefig(f"images/{model_name}_outsample_{timesteps}_{epoch}_{batch_size}_{lr}_{custom_lr}.png")
     plt.show()
 
     # Calculate RMSE
     RMSE = np.sqrt(mean_squared_error(df["prediction"], df["actual"]))
-
+    pred_acc = price_trend_acc(df["prediction"], df["actual"])
+    print(f"Price Prediction Accuracy is {pred_acc}")
     return RMSE
 
 def scheduler(epoch):
@@ -101,3 +108,19 @@ def scheduler(epoch):
         lrate = (10 ** -6)
 
     return lrate
+
+def price_trend_acc(pred, actual):
+    '''
+    pred: list/series of predicted prices
+    actual: list/series of actual prices
+    Check whether the predicted price has the same price trend as actual
+    '''
+    d = {'pred':pred, 'actual':actual}
+    df = pd.DataFrame(d)
+    df['pred_diff'] = df['pred'].diff().fillna(0)
+    df['pred_trend'] = np.where(df['pred_diff'] > 0, 1, 0)
+    df['actual_diff'] = df['actual'].diff().fillna(0)
+    df['actual_trend'] = np.where(df['actual_diff'] > 0, 1, 0)
+    df['trend_result'] = df['pred_trend'] == df['actual_trend']
+    prediction_accuracy = df['trend_result'].value_counts(normalize=True).values[0]
+    return prediction_accuracy

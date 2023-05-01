@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import fn_data as utils
+import fn_data_processing as utils
 from sklearn.model_selection import train_test_split
 from pickle import dump
 from sklearn.preprocessing import MinMaxScaler

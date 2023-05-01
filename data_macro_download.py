@@ -1,6 +1,6 @@
 import pandas as pd
 import datetime
-import data_download_fn as data_download
+import fn_data_download as data_download
 '''
 Download macroeconomic data from various sources. 
 If data frequency is less than daily, forward fill the last value

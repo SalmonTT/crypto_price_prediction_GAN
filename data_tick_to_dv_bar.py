@@ -1,4 +1,4 @@
-import bar_generator as bg
+import data_bar_generator as bg
 import pandas as pd
 import os
 '''
