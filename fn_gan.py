@@ -36,7 +36,7 @@ def Discriminator(input_dim, output_dim)-> tf.keras.models.Model:
 class GAN:
     def __init__(self, generator, discriminator, opt):
         self.opt = opt
-        self.lr = opt["lr"]
+        sxrelf.lr = opt["lr"]
         self.generator = generator
         self.discriminator = discriminator
         self.cross_entropy = tf.keras.losses.BinaryCrossentropy(from_logits=True)

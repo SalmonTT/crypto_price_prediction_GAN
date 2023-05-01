@@ -23,6 +23,8 @@ def run_wgan(configs):
     # list of prediction prices, list of rmspe from each epoch and the real prices
     pred_price, real_price, rmse = gan.train(X_train, y_train, yc_train, epoch)
     # Convert into dataframe
+    # force shape alignment
+    train_predict_index = train_predict_index[:pred_price[0].reshape(-1, 1).shape[0]]
     price_df = pd.DataFrame(index=train_predict_index)
     for i in range(len(pred_price)):
         # rescale prices

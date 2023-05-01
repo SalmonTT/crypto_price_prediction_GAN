@@ -75,6 +75,7 @@ def plot_prediction(model, X, y, y_scaler, predict_index, dataset_name, model_na
     if dataset_name != 'Test':
         y = y_scaler.inverse_transform(y)
     prediction = y_scaler.inverse_transform(prediction)
+    predict_index = predict_index[:len(prediction.T[0])]
     df = pd.DataFrame(index=predict_index)
     df['prediction'] = prediction.T[0]
     df['actual'] = y.T[0]

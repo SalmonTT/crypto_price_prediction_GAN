@@ -17,8 +17,9 @@ def run_gan_predictions(configs):
     # Get predicted data
     y_predicted = G_model(X_test)
     y_predicted = y_scaler.inverse_transform(y_predicted)
-
+    test_predict_index = test_predict_index[:len(y_predicted.T[0])]
     price_df = pd.DataFrame(index=test_predict_index)
+
     price_df['prediction'] = y_predicted.T[0]
     price_df['actual'] = y_test.T[0]
 

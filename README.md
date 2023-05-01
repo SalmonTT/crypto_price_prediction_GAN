@@ -1,7 +1,8 @@
 # ML in Practice Project Report (IEOR4579)
 
 ## Abstract
-Our aim for this project is twofold: 1) we aim to first replicate the project detailed in the paper [Stock price prediction using Generative Adversarial Networks](https://paperswithcode.com/paper/stock-price-prediction-using-generative) by H.Lin *et al.* and 2) we attempt to improve some of the potential shortcomings found in the paper. 
+Our aim for this project is twofold: 1) we aim to first replicate the project detailed in the paper 
+[Stock price prediction using Generative Adversarial Networks](https://paperswithcode.com/paper/stock-price-prediction-using-generative) by H.Lin *et al.* and 2) we attempt to improve some of the potential shortcomings found in the paper. 
 
 ## Paper Summary
 The paper conducts Generative Adversarial Network(GAN) to predict stock price. 

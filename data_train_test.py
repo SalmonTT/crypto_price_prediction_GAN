@@ -27,7 +27,7 @@ def generate_train_test(configs):
     final_data = final_data.dropna()
     # Get features and target (ETHUSD_vwap)
     feature_list = final_data.columns.to_list()
-    feature_list.remove(target)
+    # feature_list.remove(target)
     print(feature_list)
     X = final_data[feature_list]
     y = final_data[[target]]

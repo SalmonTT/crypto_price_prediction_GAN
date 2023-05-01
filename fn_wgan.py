@@ -48,7 +48,6 @@ class GAN():
         self.g_optimizer = tf.keras.optimizers.Adam(self.opt['lr'])
         self.generator = generator
         self.discriminator = discriminator
-        self.batch_size = self.opt['bs']
         self.input_shape = self.opt['input_shape']
         checkpoint_dir = '../training_checkpoints'
         self.checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
@@ -82,6 +81,7 @@ class GAN():
         return gp
 
     def train_step(self, real_input, real_price, yc):
+        # overrides all the batch_size setting
         batch_size = tf.shape(real_input)[0]
         for _ in range(1):
             with tf.GradientTape() as d_tape:
@@ -159,7 +159,7 @@ class GAN():
             # print(f"RMSPE of predicted prices vs. real prices: {rmspe}")
 
         tf.keras.models.save_model(self.generator, f'models/WGAN_model_{self.opt["timesteps"]}_{self.opt["lr"]}_'
-                                                   f'{self.opt["bs"]}_{self.opt["epoch"]}.h5')
+                                                   f'{self.opt["epoch"]}.h5')
         # Reshape the predicted result & real
         # Plot the loss
         plt.plot(train_hist['D_losses'], label='D_loss')
@@ -168,7 +168,7 @@ class GAN():
         plt.ylabel('Loss')
         plt.legend()
         plt.savefig(f'images/wgan_loss_{self.opt["timesteps"]}_{self.opt["lr"]}_'
-                                                   f'{self.opt["bs"]}_{self.opt["epoch"]}.png')
+                                                   f'{self.opt["epoch"]}.png')
         plt.show()
 
         return list_predicted_price, real_price.T[0], list_rmse
