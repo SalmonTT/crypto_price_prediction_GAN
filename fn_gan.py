@@ -36,7 +36,7 @@ def Discriminator(input_dim, output_dim)-> tf.keras.models.Model:
 class GAN:
     def __init__(self, generator, discriminator, opt):
         self.opt = opt
-        sxrelf.lr = opt["lr"]
+        self.lr = opt["lr"]
         self.generator = generator
         self.discriminator = discriminator
         self.cross_entropy = tf.keras.losses.BinaryCrossentropy(from_logits=True)
@@ -98,7 +98,7 @@ class GAN:
         for epoch in range(epochs):
             start = time.time()
             real_price, fake_price, loss = self.train_step(X_train, y_train, yc)
-            list_predicted_price.append(fake_price.numpy().T[0])
+            list_predicted_price.append(fake_price.numpy().mean(axis=1))
 
             # Save the model every 15 epochs
             if (epoch + 1) % 15 == 0:
@@ -112,7 +112,7 @@ class GAN:
             train_hist['D_losses'].append(loss['d_loss'].numpy())
             train_hist['G_losses'].append(loss['g_loss'].numpy())
             train_hist['per_epoch_times'].append(per_epoch_ptime)
-            rmse = np.sqrt(mean_squared_error(fake_price.numpy().T[0], real_price.numpy().T[0]))
+            rmse = np.sqrt(mean_squared_error(fake_price.numpy().mean(axis=1), real_price.numpy().T[0]))
             list_rmse.append(rmse)
 
         tf.keras.models.save_model(self.generator, f'models/gan_model_{self.opt["timesteps"]}_{self.opt["lr"]}_'

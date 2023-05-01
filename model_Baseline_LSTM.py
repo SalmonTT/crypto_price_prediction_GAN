@@ -29,13 +29,13 @@ def run_lstm(configs):
     print(model.summary())
 
     ## ------ Plot results ------ ##
-    train_RMSE = gru.plot_prediction(model, X_train, y_train, y_scaler, train_predict_index, 'Training')
+    train_RMSE = gru.plot_prediction(model, X_train, y_train, y_scaler, train_predict_index, 'Training', 'lstm', configs)
     print("----- Train_RMSE_LSTM -----", train_RMSE)
 
-    val_RMSE = gru.plot_prediction(model, X_val, y_val, y_scaler, val_predict_index, 'Validation')
+    val_RMSE = gru.plot_prediction(model, X_val, y_val, y_scaler, val_predict_index, 'Validation', 'lstm', configs)
     print("----- Val_RMSE_LSTM -----", val_RMSE)
 
-    test_RMSE = gru.plot_prediction(model, X_test, y_test, y_scaler, test_predict_index, 'Test')
+    test_RMSE = gru.plot_prediction(model, X_test, y_test, y_scaler, test_predict_index, 'Test', 'lstm', configs)
     print("----- Test_RMSE_LSTM -----", test_RMSE)
 
     pass

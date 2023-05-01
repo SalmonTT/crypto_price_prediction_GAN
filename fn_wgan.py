@@ -139,8 +139,7 @@ class GAN():
             start = time.time()
             # both are arrays with shape [X, 1], fake_price is a tensorEagle object
             real_price, fake_price, loss = self.train_step(X_train, y_train, yc)
-            list_predicted_price.append(fake_price.numpy().T[0])
-
+            list_predicted_price.append(fake_price.numpy().mean(axis=1))
             # Save the model every 15 epochs
             if (epoch + 1) % 15 == 0:
                 # tf.keras.models.save_model(self.generator, 'gen_GRU_model_%d.h5' % epoch)
@@ -154,12 +153,12 @@ class GAN():
             train_hist['G_losses'].append(loss['g_loss'].numpy())
             train_hist['per_epoch_times'].append(per_epoch_ptime)
 
-            rmse = np.sqrt(mean_squared_error(fake_price.numpy().T[0], real_price.T[0]))
+            rmse = np.sqrt(mean_squared_error(fake_price.numpy().mean(axis=1), real_price.T[0]))
             list_rmse.append(rmse)
             # print(f"RMSPE of predicted prices vs. real prices: {rmspe}")
 
         tf.keras.models.save_model(self.generator, f'models/WGAN_model_{self.opt["timesteps"]}_{self.opt["lr"]}_'
-                                                   f'{self.opt["epoch"]}.h5')
+                                                   f'{self.opt["bs"]}_{self.opt["epoch"]}.h5')
         # Reshape the predicted result & real
         # Plot the loss
         plt.plot(train_hist['D_losses'], label='D_loss')

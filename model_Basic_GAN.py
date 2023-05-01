@@ -6,6 +6,7 @@ from plotly.subplots import make_subplots
 
 def run_basic_gan(configs):
     timesteps, path, epoch, batch_size, lr = configs
+    print(f"Running Basic Gan with the following configs: {timesteps}, {epoch}, {batch_size}, {lr}")
     opt = {"lr": lr, "epoch": epoch, 'bs': batch_size, 'timesteps': timesteps}
     # Load data
     X_train = np.load(f"{path}X_train_val_{timesteps}.npy", allow_pickle=True)
@@ -15,21 +16,24 @@ def run_basic_gan(configs):
     train_predict_index = np.load(f"{path}index_train_val_{timesteps}.npy", allow_pickle=True)
     # print(y_train)
     output_dim = y_train.shape[1]
-
+    print(f"output dimension is {output_dim}")
     ## For Bayesian
     generator = gan_fn.Generator(X_train.shape[1], output_dim, X_train.shape[2])
     discriminator = gan_fn.Discriminator(X_train.shape[1], output_dim)
     gan = gan_fn.GAN(generator, discriminator, opt)
     pred_price, real_price, rmse = gan.train(X_train, y_train, yc_train, opt)
-
+    print(f"pred_price length: {len(pred_price)}, real price length: {len(real_price)}")
+    print(pred_price[0].shape)
+    print(pred_price[0])
     # Convert into dataframe
+    train_predict_index = train_predict_index[:pred_price[0].reshape(-1, 1).shape[0]]
     price_df = pd.DataFrame(index=train_predict_index)
     for i in range(len(pred_price)):
         # rescale prices
         price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
     # rescale and add real prices
     price_df['real_price'] = y_scaler.inverse_transform(real_price.reshape(-1, 1))
-
+    print(f"price_df shape: {price_df.shape}")
     # ------ Plot the result ------ #
     fig = make_subplots(specs=[[{"secondary_y": True}]])
     fig.add_trace(go.Scatter(y=price_df[f"pred_price_{opt['epoch'] - 1}"],

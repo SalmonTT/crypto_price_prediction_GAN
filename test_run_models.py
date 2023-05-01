@@ -12,7 +12,7 @@ if generate_data:
     # common configs
     source = 'data/dataset_1.pkl'
     target = 'ETHUSD_vwap'
-    n_steps_in = 30 # 3, 15, 30
+    n_steps_in = 15 # 3, 15, 30
     n_steps_out = 3 # 1, 2, 3
 
     # -- Train test data (for GAN and WGAN Models) -- #
@@ -30,7 +30,7 @@ if generate_data:
 
 # ---- Run Models ----- #
 # Common Configs
-timesteps = ['3_1', '15_2', '30_3']
+timesteps = ['3_1', '15_1', '15_3', '30_1', '30_3']
 lstm_gru_path = 'train_val_test_data/'
 gan_path = 'train_test_data/'
 i = 0 # an index to set the params from lists
@@ -65,9 +65,9 @@ gan_pred_configs = gan_type, timesteps[i], gan_path, epoch, batch_size, lr
 # run_gan_predictions(gan_pred_configs)
 
 # WGAN
-epoch = 150 # 100, 200, 150
+epoch = 10 # 100, 200, 150
 lr = 0.0001 # 0.0001
-batch_size = 126
+batch_size = 128
 gan_type = 'wgan'
 wgan_configs = timesteps[i], gan_path, epoch, batch_size, lr
 run_wgan(wgan_configs)

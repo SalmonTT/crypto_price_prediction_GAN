@@ -74,6 +74,8 @@ def plot_prediction(model, X, y, y_scaler, predict_index, dataset_name, model_na
     prediction = model.predict(X, verbose=0)
     if dataset_name != 'Test':
         y = y_scaler.inverse_transform(y)
+    # Calculate RMSE
+    RMSE = np.sqrt(mean_squared_error(prediction.T[0], y.T[0]))
     prediction = y_scaler.inverse_transform(prediction)
     predict_index = predict_index[:len(prediction.T[0])]
     df = pd.DataFrame(index=predict_index)
@@ -92,8 +94,6 @@ def plot_prediction(model, X, y, y_scaler, predict_index, dataset_name, model_na
         plt.savefig(f"images/{model_name}_outsample_{timesteps}_{epoch}_{batch_size}_{lr}_{custom_lr}.png")
     plt.show()
 
-    # Calculate RMSE
-    RMSE = np.sqrt(mean_squared_error(df["prediction"], df["actual"]))
     pred_acc = price_trend_acc(df["prediction"], df["actual"])
     print(f"Price Prediction Accuracy is {pred_acc}")
     return RMSE
