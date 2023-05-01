@@ -6,7 +6,7 @@ from plotly.subplots import make_subplots
 
 def run_wgan(configs):
     timesteps, path, epoch, batch_size, lr = configs
-    opt = {"lr": lr, "epoch": epoch, 'bs': batch_size, 'timesteps': timesteps}
+    opt = {"lr": lr, "epoch": epoch, 'bs': batch_size, 'timesteps': timesteps, 'input_shape':4}
     # Load data
     X_train = np.load(f"{path}X_train_val_{timesteps}.npy", allow_pickle=True)
     y_train = np.load(f"{path}y_train_val_{timesteps}.npy", allow_pickle=True)
@@ -17,7 +17,8 @@ def run_wgan(configs):
     output_dim = y_train.shape[1]
 
     generator = gan_fn.Generator(X_train.shape[1], output_dim, X_train.shape[2])
-    discriminator = gan_fn.Discriminator()
+    discriminator = gan_fn.Discriminator(X_train.shape[1], output_dim)
+    opt['input_shape'] = X_train.shape[1] + output_dim
     gan = gan_fn.GAN(generator, discriminator, opt)
     # list of prediction prices, list of rmspe from each epoch and the real prices
     pred_price, real_price, rmse = gan.train(X_train, y_train, yc_train, epoch)

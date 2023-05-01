@@ -26,9 +26,9 @@ def Generator(input_dim, output_dim, feature_size) -> tf.keras.models.Model:
     model.add(Dense(units=output_dim))
     return model
 
-def Discriminator() -> tf.keras.models.Model:
+def Discriminator(input_dim, output_dim) -> tf.keras.models.Model:
     model = tf.keras.Sequential()
-    model.add(Conv1D(32, input_shape=(4, 1), kernel_size=3, strides=2, padding="same", activation=LeakyReLU(alpha=0.01)))
+    model.add(Conv1D(32, input_shape=(input_dim+output_dim, 1), kernel_size=3, strides=2, padding="same", activation=LeakyReLU(alpha=0.01)))
     model.add(Conv1D(64, kernel_size=3, strides=2, padding="same", activation=LeakyReLU(alpha=0.01)))
     model.add(Conv1D(128, kernel_size=3, strides=2, padding="same", activation=LeakyReLU(alpha=0.01)))
     model.add(Flatten())
@@ -49,6 +49,7 @@ class GAN():
         self.generator = generator
         self.discriminator = discriminator
         self.batch_size = self.opt['bs']
+        self.input_shape = self.opt['input_shape']
         checkpoint_dir = '../training_checkpoints'
         self.checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
         self.checkpoint = tf.train.Checkpoint(generator_optimizer=self.g_optimizer,
@@ -62,7 +63,7 @@ class GAN():
         and added to the discriminator loss.
         """
         # get the interpolated data
-        alpha = tf.random.normal([batch_size, 4, 1], 0.0, 1.0)
+        alpha = tf.random.normal([batch_size, self.input_shape, 1], 0.0, 1.0)
         diff = fake_output - tf.cast(real_output, tf.float32)
         interpolated = tf.cast(real_output, tf.float32) + alpha * diff
 

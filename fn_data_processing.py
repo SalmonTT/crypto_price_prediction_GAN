@@ -138,7 +138,7 @@ def get_X_y(X_data, y_data, n_steps_in, n_steps_out):
         X_value = X_data[i: i + n_steps_in][:, :]
         y_value = y_data[i + n_steps_in: i + (n_steps_in + n_steps_out)][:, 0]
         yc_value = y_data[i: i + n_steps_in][:, :]
-        if len(X_value) == 3 and len(y_value) == 1:
+        if len(X_value) == n_steps_in and len(y_value) == n_steps_out:
             X.append(X_value)
             y.append(y_value)
             yc.append(yc_value)

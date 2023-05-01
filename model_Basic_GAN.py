@@ -13,11 +13,12 @@ def run_basic_gan(configs):
     yc_train = np.load(f"{path}yc_train_val_{timesteps}.npy", allow_pickle=True)
     y_scaler = pd.read_pickle(f'{path}y_scaler_{timesteps}.pkl')
     train_predict_index = np.load(f"{path}index_train_val_{timesteps}.npy", allow_pickle=True)
+    # print(y_train)
     output_dim = y_train.shape[1]
 
     ## For Bayesian
     generator = gan_fn.Generator(X_train.shape[1], output_dim, X_train.shape[2])
-    discriminator = gan_fn.Discriminator()
+    discriminator = gan_fn.Discriminator(X_train.shape[1], output_dim)
     gan = gan_fn.GAN(generator, discriminator, opt)
     pred_price, real_price, rmse = gan.train(X_train, y_train, yc_train, opt)
 

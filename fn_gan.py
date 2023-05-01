@@ -21,16 +21,16 @@ def Generator(input_dim, output_dim, feature_size) -> tf.keras.models.Model:
     model.add(Dense(units=output_dim))
     return model
 
-def Discriminator():
+def Discriminator(input_dim, output_dim)-> tf.keras.models.Model:
     cnn_net = tf.keras.Sequential()
-    cnn_net.add(Conv1D(32, input_shape=(4, 1), kernel_size=3, strides=2, padding='same', activation=LeakyReLU(alpha=0.01)))
+    cnn_net.add(Conv1D(32, input_shape=(input_dim+output_dim, 1), kernel_size=3, strides=2, padding='same', activation=LeakyReLU(alpha=0.01)))
     cnn_net.add(Conv1D(64, kernel_size=5, strides=2, padding='same', activation=LeakyReLU(alpha=0.01)))
     cnn_net.add(Conv1D(128, kernel_size=5, strides=2, padding='same', activation=LeakyReLU(alpha=0.01)))
     cnn_net.add(Flatten())
     cnn_net.add(Dense(220, use_bias=False))
     cnn_net.add(LeakyReLU())
     cnn_net.add(Dense(220, use_bias=False, activation='relu'))
-    cnn_net.add(Dense(1, activation='sigmoid'))
+    cnn_net.add(Dense(units=1, activation='sigmoid'))
     return cnn_net
 
 class GAN:

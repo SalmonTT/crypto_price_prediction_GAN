@@ -33,7 +33,7 @@ if generate_data:
 timesteps = ['3_1', '15_2', '30_3']
 lstm_gru_path = 'train_val_test_data/'
 gan_path = 'train_test_data/'
-i = 0 # an index to set the params from lists
+i = 2 # an index to set the params from lists
 
 # GRU
 epoch = 50
@@ -54,9 +54,9 @@ lstm_configs = timesteps[i], lstm_gru_path, epoch, batch_size, lr, custom_lr
 
 # -- GAN Models -- #
 # GAN
-epoch = 200 # 165,
-batch_size = 128 # 128,
-lr = 0.00016 # 0.00016,
+epoch = 50 # 165, 200， 50
+batch_size = 128 # 128, 64， 10
+lr = 0.00016 # 0.00016, 0.001
 gan_type = 'gan'
 gan_configs = timesteps[i], gan_path, epoch, batch_size, lr
 run_basic_gan(gan_configs)
@@ -65,12 +65,12 @@ gan_pred_configs = gan_type, timesteps[i], gan_path, epoch, batch_size, lr
 run_gan_predictions(gan_pred_configs)
 
 # WGAN
-epoch = 100
-batch_size = 100
-lr = 0.0001
+epoch = 150 # 100, 200, 150
+batch_size = 128 # 128, 64, 32
+lr = 0.0001 # 0.0001
 gan_type = 'wgan'
 wgan_configs = timesteps[i], gan_path, epoch, batch_size, lr
-# run_wgan(wgan_configs)
+run_wgan(wgan_configs)
 # Outsample
 wgan_pred_configs = gan_type, timesteps[i], gan_path, epoch, batch_size, lr
-# run_gan_predictions(wgan_pred_configs)
+run_gan_predictions(wgan_pred_configs)
