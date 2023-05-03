@@ -54,7 +54,7 @@ def run_basic_gan(configs):
             x=0
         ))
     fig.write_image(f"images/gan_prices_{timesteps}_{lr}_{batch_size}_{epoch}.png")
-    fig.show()
+    # fig.show()
 
     # ----- plot error ----- #
     fig = make_subplots(specs=[[{"secondary_y": True}]])
@@ -72,5 +72,5 @@ def run_basic_gan(configs):
             x=0
         ))
     fig.write_image(f"images/gan_rmse_{timesteps}_{lr}_{batch_size}_{epoch}.png")
-    fig.show()
+    # fig.show()
     pass

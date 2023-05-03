@@ -52,7 +52,7 @@ def run_wgan(configs):
             x=0
         ))
     fig.write_image(f"images/wgan_prices_{timesteps}_{lr}_{batch_size}_{epoch}.png")
-    fig.show()
+    # fig.show()
 
     # ----- plot error ----- #
     fig = make_subplots(specs=[[{"secondary_y": True}]])
@@ -70,6 +70,6 @@ def run_wgan(configs):
             x=0
         ))
     fig.write_image(f"images/wgan_rmse_{timesteps}_{lr}_{batch_size}_{epoch}.png")
-    fig.show()
+    # fig.show()
 
     pass

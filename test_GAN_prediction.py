@@ -4,6 +4,7 @@ import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import fn_gru as fn_gru
+from sklearn.metrics import mean_squared_error
 
 def run_gan_predictions(configs):
     gan_type, timesteps, path, epoch, batch_size, lr = configs
@@ -22,7 +23,9 @@ def run_gan_predictions(configs):
 
     price_df['prediction'] = y_predicted.T[0]
     price_df['actual'] = y_test.T[0]
-
+    # RMSE
+    rmse = np.sqrt(mean_squared_error(y_predicted.T[0], y_test.T[0]))
+    print(f"RMSE: {rmse}")
     fig = make_subplots(specs=[[{"secondary_y": True}]])
     fig.add_trace(go.Scatter(y=price_df['prediction'], x=price_df.index,
                              name='Prediction'), secondary_y=False)
@@ -39,7 +42,7 @@ def run_gan_predictions(configs):
             x=0
         ))
     fig.write_image(f"images/{gan_type}_test_{timesteps}_{lr}_{batch_size}_{epoch}.png")
-    fig.show()
+    # fig.show()
 
     # price trend prediction accuracy
     pred_acc = fn_gru.price_trend_acc(price_df["prediction"], price_df["actual"])

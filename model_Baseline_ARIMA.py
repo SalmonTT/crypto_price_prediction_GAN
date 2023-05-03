@@ -42,4 +42,4 @@ fig.update_layout(
         x=0
     ))
 fig.write_image("images/ARIMA.png")
-fig.show()
+# fig.show()

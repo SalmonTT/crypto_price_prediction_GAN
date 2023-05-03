@@ -19,6 +19,7 @@ def Generator(input_dim, output_dim, feature_size) -> tf.keras.models.Model:
                   recurrent_regularizer=regularizers.l2(1e-3)))
     #model.add(Dense(128,
     #              kernel_regularizer=regularizers.l2(1e-3)))
+
     model.add(Dense(64, kernel_regularizer=regularizers.l2(1e-3)))
     model.add(Dense(32, kernel_regularizer=regularizers.l2(1e-3)))
     #model.add(Dense(16, kernel_regularizer=regularizers.l2(1e-3)))
@@ -168,6 +169,6 @@ class GAN():
         plt.legend()
         plt.savefig(f'images/wgan_loss_{self.opt["timesteps"]}_{self.opt["lr"]}_'
                                                    f'{self.opt["epoch"]}.png')
-        plt.show()
+        # plt.show()
 
         return list_predicted_price, real_price.T[0], list_rmse

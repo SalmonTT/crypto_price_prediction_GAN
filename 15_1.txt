@@ -1,0 +1,439 @@
+/Users/simon/miniconda3/envs/algo_trading/bin/python /Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/test_run_models.py
+input_dim: 15, feature_size: 42, output_dim: 1
+Metal device set to: Apple M2 Max
+
+systemMemory: 32.00 GB
+maxCacheSize: 10.67 GB
+
+2023-05-01 15:28:55.950036: W tensorflow/core/platform/profile_utils/cpu_utils.cc:128] Failed to get CPU frequency: 0 Hz
+Epoch 1/50
+10/10 - 2s - loss: 0.6510 - val_loss: 0.4760 - 2s/epoch - 169ms/step
+Epoch 2/50
+10/10 - 0s - loss: 0.1287 - val_loss: 0.3511 - 204ms/epoch - 20ms/step
+Epoch 3/50
+10/10 - 0s - loss: 0.0490 - val_loss: 0.2478 - 214ms/epoch - 21ms/step
+Epoch 4/50
+10/10 - 0s - loss: 0.0191 - val_loss: 0.2477 - 214ms/epoch - 21ms/step
+Epoch 5/50
+10/10 - 0s - loss: 0.0145 - val_loss: 0.2678 - 215ms/epoch - 21ms/step
+Epoch 6/50
+10/10 - 0s - loss: 0.0152 - val_loss: 0.2634 - 218ms/epoch - 22ms/step
+Epoch 7/50
+10/10 - 0s - loss: 0.0107 - val_loss: 0.2564 - 220ms/epoch - 22ms/step
+Epoch 8/50
+10/10 - 0s - loss: 0.0086 - val_loss: 0.2550 - 223ms/epoch - 22ms/step
+Epoch 9/50
+10/10 - 0s - loss: 0.0077 - val_loss: 0.2551 - 216ms/epoch - 22ms/step
+Epoch 10/50
+10/10 - 0s - loss: 0.0071 - val_loss: 0.2538 - 232ms/epoch - 23ms/step
+Epoch 11/50
+10/10 - 0s - loss: 0.0065 - val_loss: 0.2510 - 223ms/epoch - 22ms/step
+Epoch 12/50
+10/10 - 0s - loss: 0.0061 - val_loss: 0.2482 - 218ms/epoch - 22ms/step
+Epoch 13/50
+10/10 - 0s - loss: 0.0058 - val_loss: 0.2457 - 229ms/epoch - 23ms/step
+Epoch 14/50
+10/10 - 0s - loss: 0.0055 - val_loss: 0.2433 - 226ms/epoch - 23ms/step
+Epoch 15/50
+10/10 - 0s - loss: 0.0053 - val_loss: 0.2410 - 230ms/epoch - 23ms/step
+Epoch 16/50
+10/10 - 0s - loss: 0.0051 - val_loss: 0.2389 - 228ms/epoch - 23ms/step
+Epoch 17/50
+10/10 - 0s - loss: 0.0050 - val_loss: 0.2370 - 227ms/epoch - 23ms/step
+Epoch 18/50
+10/10 - 0s - loss: 0.0048 - val_loss: 0.2351 - 224ms/epoch - 22ms/step
+Epoch 19/50
+10/10 - 0s - loss: 0.0047 - val_loss: 0.2333 - 228ms/epoch - 23ms/step
+Epoch 20/50
+10/10 - 0s - loss: 0.0046 - val_loss: 0.2315 - 228ms/epoch - 23ms/step
+Epoch 21/50
+10/10 - 0s - loss: 0.0045 - val_loss: 0.2299 - 232ms/epoch - 23ms/step
+Epoch 22/50
+10/10 - 0s - loss: 0.0044 - val_loss: 0.2282 - 232ms/epoch - 23ms/step
+Epoch 23/50
+10/10 - 0s - loss: 0.0044 - val_loss: 0.2266 - 228ms/epoch - 23ms/step
+Epoch 24/50
+10/10 - 0s - loss: 0.0043 - val_loss: 0.2251 - 230ms/epoch - 23ms/step
+Epoch 25/50
+10/10 - 0s - loss: 0.0042 - val_loss: 0.2236 - 233ms/epoch - 23ms/step
+Epoch 26/50
+10/10 - 0s - loss: 0.0041 - val_loss: 0.2222 - 233ms/epoch - 23ms/step
+Epoch 27/50
+10/10 - 0s - loss: 0.0041 - val_loss: 0.2208 - 230ms/epoch - 23ms/step
+Epoch 28/50
+10/10 - 0s - loss: 0.0040 - val_loss: 0.2195 - 232ms/epoch - 23ms/step
+Epoch 29/50
+10/10 - 0s - loss: 0.0039 - val_loss: 0.2183 - 230ms/epoch - 23ms/step
+Epoch 30/50
+10/10 - 0s - loss: 0.0039 - val_loss: 0.2170 - 233ms/epoch - 23ms/step
+Epoch 31/50
+10/10 - 0s - loss: 0.0038 - val_loss: 0.2159 - 240ms/epoch - 24ms/step
+Epoch 32/50
+10/10 - 0s - loss: 0.0038 - val_loss: 0.2148 - 238ms/epoch - 24ms/step
+Epoch 33/50
+10/10 - 0s - loss: 0.0037 - val_loss: 0.2137 - 237ms/epoch - 24ms/step
+Epoch 34/50
+10/10 - 0s - loss: 0.0037 - val_loss: 0.2127 - 238ms/epoch - 24ms/step
+Epoch 35/50
+10/10 - 0s - loss: 0.0036 - val_loss: 0.2117 - 240ms/epoch - 24ms/step
+Epoch 36/50
+10/10 - 0s - loss: 0.0036 - val_loss: 0.2107 - 237ms/epoch - 24ms/step
+Epoch 37/50
+10/10 - 0s - loss: 0.0035 - val_loss: 0.2098 - 238ms/epoch - 24ms/step
+Epoch 38/50
+10/10 - 0s - loss: 0.0035 - val_loss: 0.2089 - 234ms/epoch - 23ms/step
+Epoch 39/50
+10/10 - 0s - loss: 0.0034 - val_loss: 0.2080 - 227ms/epoch - 23ms/step
+Epoch 40/50
+10/10 - 0s - loss: 0.0034 - val_loss: 0.2072 - 239ms/epoch - 24ms/step
+Epoch 41/50
+10/10 - 0s - loss: 0.0033 - val_loss: 0.2063 - 241ms/epoch - 24ms/step
+Epoch 42/50
+10/10 - 0s - loss: 0.0033 - val_loss: 0.2055 - 229ms/epoch - 23ms/step
+Epoch 43/50
+10/10 - 0s - loss: 0.0032 - val_loss: 0.2047 - 237ms/epoch - 24ms/step
+Epoch 44/50
+10/10 - 0s - loss: 0.0032 - val_loss: 0.2039 - 232ms/epoch - 23ms/step
+Epoch 45/50
+10/10 - 0s - loss: 0.0031 - val_loss: 0.2031 - 236ms/epoch - 24ms/step
+Epoch 46/50
+10/10 - 0s - loss: 0.0031 - val_loss: 0.2023 - 230ms/epoch - 23ms/step
+Epoch 47/50
+10/10 - 0s - loss: 0.0031 - val_loss: 0.2016 - 231ms/epoch - 23ms/step
+Epoch 48/50
+10/10 - 0s - loss: 0.0030 - val_loss: 0.2008 - 232ms/epoch - 23ms/step
+Epoch 49/50
+10/10 - 0s - loss: 0.0030 - val_loss: 0.2000 - 236ms/epoch - 24ms/step
+Epoch 50/50
+10/10 - 0s - loss: 0.0029 - val_loss: 0.1993 - 234ms/epoch - 23ms/step
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ gru (GRU)                   (None, 15, 128)           66048
+
+ gru_1 (GRU)                 (None, 64)                37248
+
+ dense (Dense)               (None, 32)                2080
+
+ dense_1 (Dense)             (None, 1)                 33
+
+=================================================================
+Total params: 105,409
+Trainable params: 105,409
+Non-trainable params: 0
+_________________________________________________________________
+None
+Price Prediction Accuracy is 0.5389072847682119
+----- Train_RMSE_GRU ----- 931.7695586231257
+Price Prediction Accuracy is 0.515686274509804
+----- Val_RMSE_GRU ----- 2729.112980701588
+Price Prediction Accuracy is 0.5324675324675324
+----- Test_RMSE_GRU ----- 1638.7610535510746
+input_dim: 15, feature_size: 42, output_dim: 1
+/Users/simon/miniconda3/envs/algo_trading/lib/python3.10/site-packages/keras/optimizers/optimizer_v2/adam.py:110: UserWarning: The `lr` argument is deprecated, use `learning_rate` instead.
+  super(Adam, self).__init__(name, **kwargs)
+Epoch 1/50
+19/19 - 2s - loss: 0.1958 - val_loss: 0.1347 - 2s/epoch - 123ms/step
+Epoch 2/50
+19/19 - 0s - loss: 0.2942 - val_loss: 0.7080 - 325ms/epoch - 17ms/step
+Epoch 3/50
+19/19 - 0s - loss: 0.2258 - val_loss: 0.0463 - 312ms/epoch - 16ms/step
+Epoch 4/50
+19/19 - 0s - loss: 0.4307 - val_loss: 2.2263 - 317ms/epoch - 17ms/step
+Epoch 5/50
+19/19 - 0s - loss: 1.0379 - val_loss: 1.8451 - 316ms/epoch - 17ms/step
+Epoch 6/50
+19/19 - 0s - loss: 1.0353 - val_loss: 1.4237 - 318ms/epoch - 17ms/step
+Epoch 7/50
+19/19 - 0s - loss: 0.7662 - val_loss: 0.9470 - 313ms/epoch - 16ms/step
+Epoch 8/50
+19/19 - 0s - loss: 0.3454 - val_loss: 0.8126 - 315ms/epoch - 17ms/step
+Epoch 9/50
+19/19 - 0s - loss: 0.2087 - val_loss: 0.0703 - 318ms/epoch - 17ms/step
+Epoch 10/50
+19/19 - 0s - loss: 0.0088 - val_loss: 0.1229 - 322ms/epoch - 17ms/step
+Epoch 11/50
+19/19 - 0s - loss: 0.0095 - val_loss: 0.1149 - 321ms/epoch - 17ms/step
+Epoch 12/50
+19/19 - 0s - loss: 0.0055 - val_loss: 0.1186 - 331ms/epoch - 17ms/step
+Epoch 13/50
+19/19 - 0s - loss: 0.0049 - val_loss: 0.1246 - 314ms/epoch - 17ms/step
+Epoch 14/50
+19/19 - 0s - loss: 0.0046 - val_loss: 0.1294 - 316ms/epoch - 17ms/step
+Epoch 15/50
+19/19 - 0s - loss: 0.0043 - val_loss: 0.1352 - 324ms/epoch - 17ms/step
+Epoch 16/50
+19/19 - 0s - loss: 0.0041 - val_loss: 0.1410 - 329ms/epoch - 17ms/step
+Epoch 17/50
+19/19 - 0s - loss: 0.0039 - val_loss: 0.1461 - 333ms/epoch - 18ms/step
+Epoch 18/50
+19/19 - 0s - loss: 0.0037 - val_loss: 0.1508 - 326ms/epoch - 17ms/step
+Epoch 19/50
+19/19 - 0s - loss: 0.0036 - val_loss: 0.1549 - 317ms/epoch - 17ms/step
+Epoch 20/50
+19/19 - 0s - loss: 0.0035 - val_loss: 0.1586 - 319ms/epoch - 17ms/step
+Epoch 21/50
+19/19 - 0s - loss: 0.0034 - val_loss: 0.1617 - 325ms/epoch - 17ms/step
+Epoch 22/50
+19/19 - 0s - loss: 0.0033 - val_loss: 0.1645 - 326ms/epoch - 17ms/step
+Epoch 23/50
+19/19 - 0s - loss: 0.0032 - val_loss: 0.1669 - 332ms/epoch - 17ms/step
+Epoch 24/50
+19/19 - 0s - loss: 0.0031 - val_loss: 0.1689 - 319ms/epoch - 17ms/step
+Epoch 25/50
+19/19 - 0s - loss: 0.0031 - val_loss: 0.1708 - 317ms/epoch - 17ms/step
+Epoch 26/50
+19/19 - 0s - loss: 0.0030 - val_loss: 0.1724 - 317ms/epoch - 17ms/step
+Epoch 27/50
+19/19 - 0s - loss: 0.0029 - val_loss: 0.1739 - 308ms/epoch - 16ms/step
+Epoch 28/50
+19/19 - 0s - loss: 0.0028 - val_loss: 0.1753 - 318ms/epoch - 17ms/step
+Epoch 29/50
+19/19 - 0s - loss: 0.0028 - val_loss: 0.1766 - 321ms/epoch - 17ms/step
+Epoch 30/50
+19/19 - 0s - loss: 0.0027 - val_loss: 0.1779 - 315ms/epoch - 17ms/step
+Epoch 31/50
+19/19 - 0s - loss: 0.0027 - val_loss: 0.1791 - 317ms/epoch - 17ms/step
+Epoch 32/50
+19/19 - 0s - loss: 0.0026 - val_loss: 0.1804 - 313ms/epoch - 16ms/step
+Epoch 33/50
+19/19 - 0s - loss: 0.0025 - val_loss: 0.1816 - 308ms/epoch - 16ms/step
+Epoch 34/50
+19/19 - 0s - loss: 0.0025 - val_loss: 0.1828 - 320ms/epoch - 17ms/step
+Epoch 35/50
+19/19 - 0s - loss: 0.0024 - val_loss: 0.1840 - 312ms/epoch - 16ms/step
+Epoch 36/50
+19/19 - 0s - loss: 0.0024 - val_loss: 0.1853 - 314ms/epoch - 17ms/step
+Epoch 37/50
+19/19 - 0s - loss: 0.0023 - val_loss: 0.1865 - 316ms/epoch - 17ms/step
+Epoch 38/50
+19/19 - 0s - loss: 0.0023 - val_loss: 0.1877 - 316ms/epoch - 17ms/step
+Epoch 39/50
+19/19 - 0s - loss: 0.0022 - val_loss: 0.1889 - 319ms/epoch - 17ms/step
+Epoch 40/50
+19/19 - 0s - loss: 0.0022 - val_loss: 0.1901 - 311ms/epoch - 16ms/step
+Epoch 41/50
+19/19 - 0s - loss: 0.0021 - val_loss: 0.1913 - 313ms/epoch - 16ms/step
+Epoch 42/50
+19/19 - 0s - loss: 0.0021 - val_loss: 0.1924 - 318ms/epoch - 17ms/step
+Epoch 43/50
+19/19 - 0s - loss: 0.0020 - val_loss: 0.1936 - 310ms/epoch - 16ms/step
+Epoch 44/50
+19/19 - 0s - loss: 0.0020 - val_loss: 0.1948 - 312ms/epoch - 16ms/step
+Epoch 45/50
+19/19 - 0s - loss: 0.0019 - val_loss: 0.1959 - 316ms/epoch - 17ms/step
+Epoch 46/50
+19/19 - 0s - loss: 0.0019 - val_loss: 0.1970 - 312ms/epoch - 16ms/step
+Epoch 47/50
+19/19 - 0s - loss: 0.0018 - val_loss: 0.1981 - 316ms/epoch - 17ms/step
+Epoch 48/50
+19/19 - 0s - loss: 0.0018 - val_loss: 0.1991 - 313ms/epoch - 16ms/step
+Epoch 49/50
+19/19 - 0s - loss: 0.0017 - val_loss: 0.2001 - 315ms/epoch - 17ms/step
+Epoch 50/50
+19/19 - 0s - loss: 0.0017 - val_loss: 0.2011 - 321ms/epoch - 17ms/step
+Model: "sequential_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ bidirectional (Bidirectiona  (None, 256)              175104
+ l)
+
+ dense_2 (Dense)             (None, 64)                16448
+
+ dense_3 (Dense)             (None, 1)                 65
+
+=================================================================
+Total params: 191,617
+Trainable params: 191,617
+Non-trainable params: 0
+_________________________________________________________________
+None
+Price Prediction Accuracy is 0.5198675496688742
+----- Train_RMSE_LSTM ----- 931.7672802107481
+Price Prediction Accuracy is 0.5313725490196078
+----- Val_RMSE_LSTM ----- 2729.0845387461213
+Price Prediction Accuracy is 0.5454545454545454
+----- Test_RMSE_LSTM ----- 1639.0544744829456
+Running Basic Gan with the following configs: 15_1, 165, 128, 0.00016
+output dimension is 1
+WARNING:tensorflow:Layer gru_2 will not use cuDNN kernels since it doesn't meet the criteria. It will use a generic GPU kernel as fallback when running on GPU.
+WARNING:tensorflow:Layer gru_3 will not use cuDNN kernels since it doesn't meet the criteria. It will use a generic GPU kernel as fallback when running on GPU.
+WARNING:tensorflow:Layer gru_4 will not use cuDNN kernels since it doesn't meet the criteria. It will use a generic GPU kernel as fallback when running on GPU.
+/Users/simon/miniconda3/envs/algo_trading/lib/python3.10/site-packages/keras/optimizers/optimizer_v2/adam.py:110: UserWarning: The `lr` argument is deprecated, use `learning_rate` instead.
+  super(Adam, self).__init__(name, **kwargs)
+/Users/simon/miniconda3/envs/algo_trading/lib/python3.10/site-packages/tensorflow/python/util/dispatch.py:1082: UserWarning: "`binary_crossentropy` received `from_logits=True`, but the `output` argument was produced by a sigmoid or softmax activation and thus does not represent logits. Was this intended?"
+  return dispatch_target(*args, **kwargs)
+epoch 15 d_loss 1.38332 g_loss 0.7023746
+epoch 30 d_loss 1.3860971 g_loss 0.696743
+epoch 45 d_loss 1.3860809 g_loss 0.6923984
+epoch 60 d_loss 1.3863001 g_loss 0.6927503
+epoch 75 d_loss 1.3862755 g_loss 0.69340795
+epoch 90 d_loss 1.3862473 g_loss 0.69295174
+epoch 105 d_loss 1.386225 g_loss 0.69308233
+epoch 120 d_loss 1.3862023 g_loss 0.69309914
+epoch 135 d_loss 1.3860695 g_loss 0.6924244
+epoch 150 d_loss 1.3858585 g_loss 0.69326836
+epoch 165 d_loss 1.386662 g_loss 0.69223887
+WARNING:tensorflow:Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+pred_price length: 165, real price length: 1273
+(1273,)
+[0.08069164 0.20635739 0.06598753 ... 0.3944267  0.2908154  0.40140435]
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:33: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df[f'pred_price_{i}'] = y_scaler.inverse_transform(pred_price[i].reshape(-1, 1))
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_Basic_GAN.py:35: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  price_df['real_price'] = y_scaler.inverse_transform(real_price.reshape(-1, 1))
+price_df shape: (1273, 166)
+WARNING:tensorflow:Layer gru_2 will not use cuDNN kernels since it doesn't meet the criteria. It will use a generic GPU kernel as fallback when running on GPU.
+WARNING:tensorflow:Layer gru_3 will not use cuDNN kernels since it doesn't meet the criteria. It will use a generic GPU kernel as fallback when running on GPU.
+WARNING:tensorflow:Layer gru_4 will not use cuDNN kernels since it doesn't meet the criteria. It will use a generic GPU kernel as fallback when running on GPU.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Price Prediction Accuracy is 0.5102420856610801
+WARNING:tensorflow:Layer gru_5 will not use cuDNN kernels since it doesn't meet the criteria. It will use a generic GPU kernel as fallback when running on GPU.
+WARNING:tensorflow:Layer gru_6 will not use cuDNN kernels since it doesn't meet the criteria. It will use a generic GPU kernel as fallback when running on GPU.
+epoch 15 d_loss 7.509031 g_loss -0.026721623
+epoch 30 d_loss 5.418065 g_loss -0.055597708
+epoch 45 d_loss 3.367072 g_loss -0.09421436
+epoch 60 d_loss 1.1565253 g_loss -0.14024736
+epoch 75 d_loss 0.13135055 g_loss -0.18545595
+epoch 90 d_loss 0.14617987 g_loss -0.19716227
+WARNING:tensorflow:Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+/Users/simon/PycharmProjects/ML-in-Practice-New-Repo-main/model_WGAN_GP.py:33: PerformanceWarning:
+
+DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+
+WARNING:tensorflow:Layer gru_5 will not use cuDNN kernels since it doesn't meet the criteria. It will use a generic GPU kernel as fallback when running on GPU.
+WARNING:tensorflow:Layer gru_6 will not use cuDNN kernels since it doesn't meet the criteria. It will use a generic GPU kernel as fallback when running on GPU.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Price Prediction Accuracy is 0.5121042830540037
+
+Process finished with exit code 0

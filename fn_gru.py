@@ -29,7 +29,7 @@ def basic_lstm(X_train, y_train, X_val, y_val, LR, BATCH_SIZE, N_EPOCH, custom_l
     plt.plot(history.history['loss'], label='train')
     plt.plot(history.history['val_loss'], label='validation')
     plt.legend()
-    plt.show()
+    # plt.show()
 
     return model
 def basic_GRU(X_train, y_train, X_val, y_val, LR, BATCH_SIZE, N_EPOCH, custom_lr) -> tf.keras.models.Model:
@@ -65,7 +65,7 @@ def basic_GRU(X_train, y_train, X_val, y_val, LR, BATCH_SIZE, N_EPOCH, custom_lr
     plt.plot(history.history['val_loss'], label='validation')
     plt.legend()
     plt.savefig(f"images/GRU_loss_{input_dim}_{output_dim}_{N_EPOCH}_{BATCH_SIZE}_{LR}_{custom_lr}.png")
-    plt.show()
+    # plt.show()
 
     return model
 
@@ -92,7 +92,7 @@ def plot_prediction(model, X, y, y_scaler, predict_index, dataset_name, model_na
     plt.title(f"{dataset_name}", fontsize=20)
     if dataset_name == 'Test':
         plt.savefig(f"images/{model_name}_outsample_{timesteps}_{epoch}_{batch_size}_{lr}_{custom_lr}.png")
-    plt.show()
+    # plt.show()
 
     pred_acc = price_trend_acc(df["prediction"], df["actual"])
     print(f"Price Prediction Accuracy is {pred_acc}")
